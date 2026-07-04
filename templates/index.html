@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Docker PostgreSQL Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            width: 400px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2a5298;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2a5298;
+            box-shadow: 0 0 5px rgba(42,82,152,.4);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: #2a5298;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #1e3c72;
+        }
+
+        .json-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #2a5298;
+            font-weight: bold;
+        }
+
+        .json-link:hover {
+            color: #1e3c72;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+            font-size: 12px;
+        }
+
+        .tech-stack {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #666;
+            font-size: 13px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <h2>User Registration Demo</h2>
+
+        <div class="tech-stack">
+            Flask • PostgreSQL • Docker • pgAdmin
+        </div>
+
+        <form action="/adduser" method="POST">
+
+            <label>Username</label>
+            <input type="text" name="username"
+                   placeholder="Enter username"
+                   required>
+
+            <label>Email</label>
+            <input type="email" name="email"
+                   placeholder="Enter email address"
+                   required>
+
+            <button class="btn-submit" type="submit">
+                Submit User
+            </button>
+
+        </form>
+
+        <a class="json-link" href="/users" target="_blank">
+            View Users JSON →
+        </a>
+
+        <div class="footer">
+            Docker Networking Demo
+        </div>
+
+    </div>
+
+</body>
+</html>
