@@ -4,21 +4,30 @@ services:
     image: postgres:latest
     container_name: postgres_container
     environment:
-      POSTGRES_USER: your_username
-      POSTGRES_PASSWORD: your_password
-      POSTGRES_DB: your_database
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Password123
+      POSTGRES_DB: userdb
     ports:
       - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+    
 
   pgadmin:
     image: dpage/pgadmin4:latest
     container_name: pgadmin_container
     environment:
-      PGADMIN_DEFAULT_EMAIL: your_email@example.com
-      PGADMIN_DEFAULT_PASSWORD: your_password
+      PGADMIN_DEFAULT_EMAIL: admin@demo.com
+      PGADMIN_DEFAULT_PASSWORD: Password123
     ports:
-      - "8080:8080"
-    volumes:
-      - pgadmin_data:/var/lib/pgadmin
+      - "8080:80"
+    
+  FlaskApp:
+    image: python:v6
+    container_name: flaskapp_container
+    environment:
+      DB_NAME: userdb
+      DB_USER: postgres
+      DB_PASSWORD: Password123
+      DB_HOST: postgres
+      DB_PORT: 5432
+    ports:
+      - "5000:5000"
